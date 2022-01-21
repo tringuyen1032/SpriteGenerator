@@ -1,0 +1,9 @@
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\bin\Debug\SpriteGenerator.exe
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\bin\Debug\SpriteGenerator.pdb
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.SpritesForm.resources
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.Properties.Resources.resources
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.csproj.GenerateResource.cache
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.csproj.CoreCompileInputs.cache
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.exe
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.pdb
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.csproj.AssemblyReference.cache
