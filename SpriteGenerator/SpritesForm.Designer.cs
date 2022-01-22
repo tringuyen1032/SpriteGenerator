@@ -57,6 +57,7 @@
             this.groupBoxDistances = new System.Windows.Forms.GroupBox();
             this.numericUpDownMarginWidth = new System.Windows.Forms.NumericUpDown();
             this.labelMarginWidth = new System.Windows.Forms.Label();
+            this.labelNumber = new System.Windows.Forms.Label();
             this.groupBoxPaths.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistanceBetweenImages)).BeginInit();
             this.groupBoxLayout.SuspendLayout();
@@ -69,7 +70,7 @@
             // buttonGenerate
             // 
             this.buttonGenerate.Enabled = false;
-            this.buttonGenerate.Location = new System.Drawing.Point(285, 229);
+            this.buttonGenerate.Location = new System.Drawing.Point(285, 251);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(75, 23);
             this.buttonGenerate.TabIndex = 3;
@@ -89,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 48);
+            this.label2.Location = new System.Drawing.Point(8, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 6;
@@ -98,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 74);
+            this.label3.Location = new System.Drawing.Point(8, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 7;
@@ -114,7 +115,7 @@
             // 
             // textBoxOutputImageFilePath
             // 
-            this.textBoxOutputImageFilePath.Location = new System.Drawing.Point(132, 45);
+            this.textBoxOutputImageFilePath.Location = new System.Drawing.Point(132, 59);
             this.textBoxOutputImageFilePath.Name = "textBoxOutputImageFilePath";
             this.textBoxOutputImageFilePath.ReadOnly = true;
             this.textBoxOutputImageFilePath.Size = new System.Drawing.Size(127, 20);
@@ -122,7 +123,7 @@
             // 
             // textBoxOutputCSSFilePath
             // 
-            this.textBoxOutputCSSFilePath.Location = new System.Drawing.Point(132, 71);
+            this.textBoxOutputCSSFilePath.Location = new System.Drawing.Point(132, 85);
             this.textBoxOutputCSSFilePath.Name = "textBoxOutputCSSFilePath";
             this.textBoxOutputCSSFilePath.ReadOnly = true;
             this.textBoxOutputCSSFilePath.Size = new System.Drawing.Size(127, 20);
@@ -148,7 +149,7 @@
             // 
             // buttonSelectOutputImageFilePath
             // 
-            this.buttonSelectOutputImageFilePath.Location = new System.Drawing.Point(276, 43);
+            this.buttonSelectOutputImageFilePath.Location = new System.Drawing.Point(276, 57);
             this.buttonSelectOutputImageFilePath.Name = "buttonSelectOutputImageFilePath";
             this.buttonSelectOutputImageFilePath.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectOutputImageFilePath.TabIndex = 9;
@@ -158,7 +159,7 @@
             // 
             // buttonSelectOutputCSSFilePath
             // 
-            this.buttonSelectOutputCSSFilePath.Location = new System.Drawing.Point(276, 69);
+            this.buttonSelectOutputCSSFilePath.Location = new System.Drawing.Point(276, 83);
             this.buttonSelectOutputCSSFilePath.Name = "buttonSelectOutputCSSFilePath";
             this.buttonSelectOutputCSSFilePath.Size = new System.Drawing.Size(75, 23);
             this.buttonSelectOutputCSSFilePath.TabIndex = 10;
@@ -168,6 +169,7 @@
             // 
             // groupBoxPaths
             // 
+            this.groupBoxPaths.Controls.Add(this.labelNumber);
             this.groupBoxPaths.Controls.Add(this.label1);
             this.groupBoxPaths.Controls.Add(this.textBoxInputDirectoryPath);
             this.groupBoxPaths.Controls.Add(this.textBoxOutputImageFilePath);
@@ -179,7 +181,7 @@
             this.groupBoxPaths.Controls.Add(this.label3);
             this.groupBoxPaths.Location = new System.Drawing.Point(9, 12);
             this.groupBoxPaths.Name = "groupBoxPaths";
-            this.groupBoxPaths.Size = new System.Drawing.Size(357, 103);
+            this.groupBoxPaths.Size = new System.Drawing.Size(357, 117);
             this.groupBoxPaths.TabIndex = 11;
             this.groupBoxPaths.TabStop = false;
             this.groupBoxPaths.Text = "Paths";
@@ -228,7 +230,7 @@
             this.groupBoxLayout.Controls.Add(this.radioButtonAutomaticLayout);
             this.groupBoxLayout.Controls.Add(this.radioButtonHorizontalLayout);
             this.groupBoxLayout.Controls.Add(this.radioButtonRectangularLayout);
-            this.groupBoxLayout.Location = new System.Drawing.Point(9, 121);
+            this.groupBoxLayout.Location = new System.Drawing.Point(9, 143);
             this.groupBoxLayout.Name = "groupBoxLayout";
             this.groupBoxLayout.Size = new System.Drawing.Size(162, 136);
             this.groupBoxLayout.TabIndex = 16;
@@ -305,7 +307,7 @@
             this.radioButtonAutomaticLayout.Size = new System.Drawing.Size(72, 17);
             this.radioButtonAutomaticLayout.TabIndex = 17;
             this.radioButtonAutomaticLayout.TabStop = true;
-            this.radioButtonAutomaticLayout.Text = "Automatic";
+            this.radioButtonAutomaticLayout.Text = "Horizontal";
             this.radioButtonAutomaticLayout.UseVisualStyleBackColor = true;
             this.radioButtonAutomaticLayout.CheckedChanged += new System.EventHandler(this.radioButtonLayout_CheckedChanged);
             // 
@@ -317,7 +319,7 @@
             this.radioButtonHorizontalLayout.Name = "radioButtonHorizontalLayout";
             this.radioButtonHorizontalLayout.Size = new System.Drawing.Size(72, 17);
             this.radioButtonHorizontalLayout.TabIndex = 16;
-            this.radioButtonHorizontalLayout.Text = "Horizontal";
+            this.radioButtonHorizontalLayout.Text = "Automatic";
             this.radioButtonHorizontalLayout.UseVisualStyleBackColor = true;
             this.radioButtonHorizontalLayout.CheckedChanged += new System.EventHandler(this.radioButtonLayout_CheckedChanged);
             // 
@@ -327,7 +329,7 @@
             this.groupBoxDistances.Controls.Add(this.labelMarginWidth);
             this.groupBoxDistances.Controls.Add(this.labelDistanceBetweenImages);
             this.groupBoxDistances.Controls.Add(this.numericUpDownDistanceBetweenImages);
-            this.groupBoxDistances.Location = new System.Drawing.Point(174, 121);
+            this.groupBoxDistances.Location = new System.Drawing.Point(174, 143);
             this.groupBoxDistances.Name = "groupBoxDistances";
             this.groupBoxDistances.Size = new System.Drawing.Size(192, 82);
             this.groupBoxDistances.TabIndex = 17;
@@ -355,18 +357,29 @@
             this.labelMarginWidth.TabIndex = 15;
             this.labelMarginWidth.Text = "Margin width:";
             // 
+            // labelNumber
+            // 
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(129, 42);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(132, 13);
+            this.labelNumber.TabIndex = 11;
+            this.labelNumber.Text = "Number of selected files: 0";
+            // 
             // SpritesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 263);
+            this.ClientSize = new System.Drawing.Size(375, 287);
             this.Controls.Add(this.groupBoxDistances);
             this.Controls.Add(this.groupBoxLayout);
             this.Controls.Add(this.groupBoxPaths);
             this.Controls.Add(this.buttonGenerate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SpritesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SpriteGenerator";
+            this.Load += new System.EventHandler(this.SpritesForm_Load);
             this.groupBoxPaths.ResumeLayout(false);
             this.groupBoxPaths.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistanceBetweenImages)).EndInit();
@@ -411,6 +424,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownImagesInColumn;
         private System.Windows.Forms.NumericUpDown numericUpDownImagesInRow;
         private System.Windows.Forms.Label labelSprites;
+        private System.Windows.Forms.Label labelNumber;
     }
 }
 

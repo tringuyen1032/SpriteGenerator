@@ -213,6 +213,7 @@ namespace SpriteGenerator
                 {
                     width += image.Height + layoutProp.distanceBetweenImages;
                 }
+                //width += image.Width + layoutProp.distanceBetweenImages;
             }
             width = width - layoutProp.distanceBetweenImages + 2 * layoutProp.marginWidth;
             int height = images[0].Height + 2 * layoutProp.marginWidth;
@@ -228,6 +229,7 @@ namespace SpriteGenerator
             //Drawing images into the result image, writing CSS lines and increasing X coordinate.
             foreach (int i in images.Keys)
             {
+                /**
                 if (images[i].Height > images[i].Width)
                 {
                     Rectangle rectangle = new Rectangle(actualXCoordinate, yCoordinate, images[i].Width, images[i].Height);
@@ -242,6 +244,11 @@ namespace SpriteGenerator
                     cssFile.WriteLine(CssLine(cssClassNames[i], rectangle));
                     actualXCoordinate += images[i].Height + layoutProp.distanceBetweenImages;
                 }
+                **/
+                Rectangle rectangle = new Rectangle(actualXCoordinate, yCoordinate, images[0].Width, images[0].Height);
+                graphics.DrawImage(images[i], rectangle);
+                cssFile.WriteLine(CssLine(cssClassNames[i], rectangle));
+                actualXCoordinate += images[0].Width + layoutProp.distanceBetweenImages;
             }
 
             return resultSprite;

@@ -7,3 +7,4 @@ D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.exe
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.pdb
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.csproj.AssemblyReference.cache
+D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Debug\SpriteGenerator.WaitForm.resources

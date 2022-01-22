@@ -32,17 +32,20 @@ namespace SpriteGenerator
             layoutProp.distanceBetweenImages = (int)numericUpDownDistanceBetweenImages.Value;
             layoutProp.marginWidth = (int)numericUpDownMarginWidth.Value;
             Sprite sprite = new Sprite(layoutProp);
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
             sprite.Create();
+            pleaseWait.Hide();
             //Sprite sprite = new Sprite(inputFilePaths, textBoxOutputImageFilePath.Text, textBoxOutputCSSFilePath.Text, layout,
             //    (int)numericUpDownDistanceBetweenImages.Value, (int)numericUpDownMarginWidth.Value, imagesInRow, imagesInColumn);
-            string message = "Create image sprite success! Do you want to close this application?";
+            string message = "Create image sprite success!";
             string title = "Success";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            MessageBox.Show(message, title);
+            this.textBoxInputDirectoryPath.Text = "";
+            this.textBoxOutputCSSFilePath.Text = "";
+            this.textBoxOutputImageFilePath.Text = "";
+            buttonGenerateEnabled = new bool[3];
+            this.labelNumber.Text = "Number of selected files: 0";
         }
 
         //Browse input images folder.
@@ -62,6 +65,7 @@ namespace SpriteGenerator
                 //If there are files with the enabled formats in the choosen directory.
                 else
                 {
+                    this.labelNumber.Text = "Number of selected files: " + layoutProp.inputFilePaths.Length;
                     this.textBoxInputDirectoryPath.Text = folderBrowserDialog.SelectedPath;
 
                     buttonGenerateEnabled[0] = true;
