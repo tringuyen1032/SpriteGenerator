@@ -15,6 +15,7 @@ namespace SpriteGenerator
         private Dictionary<int, Image> images;
         private Dictionary<int, string> cssClassNames;
         private LayoutProperties layoutProp;
+        private WaitForm pleaseWait = new WaitForm();
 
         public Sprite(LayoutProperties _layoutProp)
         {
@@ -25,6 +26,7 @@ namespace SpriteGenerator
 
         public void Create()
         {
+            pleaseWait.Show();
             GetData(out images, out cssClassNames);
 
             StreamWriter cssFile = File.CreateText(layoutProp.outputCssFilePath);
@@ -33,7 +35,6 @@ namespace SpriteGenerator
             cssFile.WriteLine(".sprite { background-image: url('" +
                 relativeSpriteImagePath(layoutProp.outputSpriteFilePath, layoutProp.outputCssFilePath) +
                 "'); background-color: transparent; background-repeat: no-repeat; }");
-
             switch (layoutProp.layout)
             {
                 case "Automatic":
@@ -56,6 +57,7 @@ namespace SpriteGenerator
             FileStream outputSpriteFile = new FileStream(layoutProp.outputSpriteFilePath, FileMode.Create);
             resultSprite.Save(outputSpriteFile, ImageFormat.Png);
             outputSpriteFile.Close();
+            pleaseWait.Hide();
         }
 
         /// <summary>
@@ -68,9 +70,10 @@ namespace SpriteGenerator
         {
             images = new Dictionary<int, Image>();
             cssClassNames = new Dictionary<int, string>();
-
+            pleaseWait.SetStep(layoutProp.inputFilePaths.Length);
             for (int i = 0; i < layoutProp.inputFilePaths.Length; i++)
             {
+                pleaseWait.GeneratingPercent(i);
                 Image img = OpenImage(layoutProp.inputFilePaths[i]);
                 images.Add(i, img);
                 string[] splittedFilePath = layoutProp.inputFilePaths[i].Split('\\');
@@ -196,6 +199,7 @@ namespace SpriteGenerator
         {
             //Calculating result image dimension.
             int width = 0;
+            int count = 0;
             foreach (Image image in images.Values)
             {
                 if (image.Width < image.Height)
@@ -206,6 +210,7 @@ namespace SpriteGenerator
                 {
                     width += image.Height + layoutProp.distanceBetweenImages;
                 }
+                count += 1;
                 //width += image.Width + layoutProp.distanceBetweenImages;
             }
             width = width - layoutProp.distanceBetweenImages + 2 * layoutProp.marginWidth;
@@ -222,28 +227,12 @@ namespace SpriteGenerator
             //Drawing images into the result image, writing CSS lines and increasing X coordinate.
             foreach (int i in images.Keys)
             {
-                /**
-                if (images[i].Height > images[i].Width)
-                {
-                    Rectangle rectangle = new Rectangle(actualXCoordinate, yCoordinate, images[i].Width, images[i].Height);
-                    graphics.DrawImage(images[i], rectangle);
-                    cssFile.WriteLine(CssLine(cssClassNames[i], rectangle));
-                    actualXCoordinate += images[i].Width + layoutProp.distanceBetweenImages;
-                }
-                else
-                {
-                    Rectangle rectangle = new Rectangle(actualXCoordinate, yCoordinate, images[i].Height, images[i].Width);
-                    graphics.DrawImage(images[i], rectangle);
-                    cssFile.WriteLine(CssLine(cssClassNames[i], rectangle));
-                    actualXCoordinate += images[i].Height + layoutProp.distanceBetweenImages;
-                }
-                **/
                 Rectangle rectangle = new Rectangle(actualXCoordinate, yCoordinate, images[0].Width, images[0].Height);
                 graphics.DrawImage(images[i], rectangle);
                 cssFile.WriteLine(CssLine(cssClassNames[i], rectangle));
                 actualXCoordinate += images[0].Width + layoutProp.distanceBetweenImages;
             }
-
+            pleaseWait.GeneratingPercent(pleaseWait.GetValue() + 1);
             return resultSprite;
         }
 

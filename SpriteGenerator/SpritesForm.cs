@@ -32,10 +32,7 @@ namespace SpriteGenerator
             layoutProp.distanceBetweenImages = (int)numericUpDownDistanceBetweenImages.Value;
             layoutProp.marginWidth = (int)numericUpDownMarginWidth.Value;
             Sprite sprite = new Sprite(layoutProp);
-            WaitForm pleaseWait = new WaitForm();
-            pleaseWait.Show();
             sprite.Create();
-            pleaseWait.Hide();
             //Sprite sprite = new Sprite(inputFilePaths, textBoxOutputImageFilePath.Text, textBoxOutputCSSFilePath.Text, layout,
             //    (int)numericUpDownDistanceBetweenImages.Value, (int)numericUpDownMarginWidth.Value, imagesInRow, imagesInColumn);
             string message = "Create image sprite success!";
