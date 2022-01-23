@@ -29,6 +29,7 @@ namespace SpriteGenerator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitForm));
             this.label1 = new System.Windows.Forms.Label();
             this.progressBarGenerating = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
@@ -56,6 +57,7 @@ namespace SpriteGenerator
             this.ClientSize = new System.Drawing.Size(223, 87);
             this.Controls.Add(this.progressBarGenerating);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WaitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generating...";

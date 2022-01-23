@@ -43,6 +43,7 @@
             this.buttonSelectOutputImageFilePath = new System.Windows.Forms.Button();
             this.buttonSelectOutputCSSFilePath = new System.Windows.Forms.Button();
             this.groupBoxPaths = new System.Windows.Forms.GroupBox();
+            this.labelNumber = new System.Windows.Forms.Label();
             this.numericUpDownDistanceBetweenImages = new System.Windows.Forms.NumericUpDown();
             this.labelDistanceBetweenImages = new System.Windows.Forms.Label();
             this.radioButtonRectangularLayout = new System.Windows.Forms.RadioButton();
@@ -57,7 +58,6 @@
             this.groupBoxDistances = new System.Windows.Forms.GroupBox();
             this.numericUpDownMarginWidth = new System.Windows.Forms.NumericUpDown();
             this.labelMarginWidth = new System.Windows.Forms.Label();
-            this.labelNumber = new System.Windows.Forms.Label();
             this.groupBoxPaths.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistanceBetweenImages)).BeginInit();
             this.groupBoxLayout.SuspendLayout();
@@ -185,6 +185,15 @@
             this.groupBoxPaths.TabIndex = 11;
             this.groupBoxPaths.TabStop = false;
             this.groupBoxPaths.Text = "Paths";
+            // 
+            // labelNumber
+            // 
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(129, 42);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(132, 13);
+            this.labelNumber.TabIndex = 11;
+            this.labelNumber.Text = "Number of selected files: 0";
             // 
             // numericUpDownDistanceBetweenImages
             // 
@@ -356,15 +365,6 @@
             this.labelMarginWidth.Size = new System.Drawing.Size(70, 13);
             this.labelMarginWidth.TabIndex = 15;
             this.labelMarginWidth.Text = "Margin width:";
-            // 
-            // labelNumber
-            // 
-            this.labelNumber.AutoSize = true;
-            this.labelNumber.Location = new System.Drawing.Point(129, 42);
-            this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(132, 13);
-            this.labelNumber.TabIndex = 11;
-            this.labelNumber.Text = "Number of selected files: 0";
             // 
             // SpritesForm
             // 
