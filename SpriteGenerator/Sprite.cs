@@ -90,12 +90,18 @@ namespace SpriteGenerator
 
         static Image ScaleByPercent(Image imgPhoto)
         {
-            float nPercent = 1;
-            if (imgPhoto.Height > 600)
+            float heightResize = 720.0f;
+            if(imgPhoto.Height <= 720)
             {
-                nPercent = ((float)imgPhoto.Height / 22000);
+                heightResize = (float)imgPhoto.Height;
             }
-            imgPhoto = (Image)new Bitmap(imgPhoto, new Size((int)(imgPhoto.Width * nPercent), (int)(imgPhoto.Height * nPercent)));
+            if(imgPhoto.Width > imgPhoto.Height)
+            {
+                Image img = imgPhoto;
+                img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                imgPhoto = img;
+            }
+            imgPhoto = (Image)new Bitmap(imgPhoto, new Size((int)(imgPhoto.Width *(heightResize / (float)imgPhoto.Height)), (int)(heightResize)));
             int sourceWidth = imgPhoto.Width;
             int sourceHeight = imgPhoto.Height;
             int sourceX = 0;
@@ -103,8 +109,8 @@ namespace SpriteGenerator
 
             int destX = 0;
             int destY = 0;
-            int destWidth = (int)(sourceWidth * nPercent);
-            int destHeight = (int)(sourceHeight * nPercent);
+            int destWidth = (int)(sourceWidth * (heightResize / (float)sourceHeight));
+            int destHeight = (int)(heightResize);
 
             Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
                                      PixelFormat.Format24bppRgb);
@@ -113,23 +119,10 @@ namespace SpriteGenerator
 
             Graphics grPhoto = Graphics.FromImage(bmPhoto);
             grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            if (destWidth > destHeight)
-            {
-                grPhoto.TranslateTransform(destWidth, 0);
-                grPhoto.RotateTransform(90f);
-                grPhoto.DrawImage(imgPhoto,
-                new Rectangle(destX, destY, destHeight, destWidth),
+            grPhoto.DrawImage(imgPhoto,
+                new Rectangle(destX, destY, destWidth, destHeight),
                 new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
                 GraphicsUnit.Pixel);
-            }
-            else
-            {
-                grPhoto.DrawImage(imgPhoto,
-                    new Rectangle(destX, destY, destWidth, destHeight),
-                    new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                    GraphicsUnit.Pixel);
-            }
-
             grPhoto.Dispose();
             return bmPhoto;
         }

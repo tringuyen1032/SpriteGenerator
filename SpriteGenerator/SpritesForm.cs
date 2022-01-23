@@ -111,13 +111,7 @@ namespace SpriteGenerator
 
         static Image ScaleByPercent(Image imgPhoto)
         {
-            float nPercent = 1;
-            if (imgPhoto.Height > 600)
-            {
-                nPercent = ((float)imgPhoto.Height / 22000);
-            }
-
-            imgPhoto = (Image)new Bitmap(imgPhoto, new Size((int)(imgPhoto.Width * nPercent), (int)(imgPhoto.Height * nPercent)));
+            imgPhoto = (Image)new Bitmap(imgPhoto, new Size((int)(imgPhoto.Width * 0.1), (int)(imgPhoto.Height * 0.1)));
 
             int sourceWidth = imgPhoto.Width;
             int sourceHeight = imgPhoto.Height;
@@ -126,8 +120,8 @@ namespace SpriteGenerator
 
             int destX = 0;
             int destY = 0;
-            int destWidth = (int)(sourceWidth * nPercent);
-            int destHeight = (int)(sourceHeight * nPercent);
+            int destWidth = (int)(sourceWidth * 0.1);
+            int destHeight = (int)(sourceHeight * 0.1);
 
             Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
                                      PixelFormat.Format24bppRgb);
@@ -136,23 +130,10 @@ namespace SpriteGenerator
 
             Graphics grPhoto = Graphics.FromImage(bmPhoto);
             grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            if (destWidth > destHeight)
-            {
-                grPhoto.TranslateTransform(destWidth, 0);
-                grPhoto.RotateTransform(90f);
-                grPhoto.DrawImage(imgPhoto,
-                new Rectangle(destX, destY, destHeight, destWidth),
-                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
-                GraphicsUnit.Pixel);
-            }
-            else
-            {
-                grPhoto.DrawImage(imgPhoto,
+            grPhoto.DrawImage(imgPhoto,
                     new Rectangle(destX, destY, destWidth, destHeight),
                     new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
                     GraphicsUnit.Pixel);
-            }
-
             grPhoto.Dispose();
             return bmPhoto;
         }
