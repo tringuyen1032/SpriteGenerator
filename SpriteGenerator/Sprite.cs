@@ -93,8 +93,8 @@ namespace SpriteGenerator
 
         static Image ScaleByPercent(Image imgPhoto)
         {
-            float heightResize = 720.0f;
-            if(imgPhoto.Height <= 720)
+            float heightResize = 1200.0f;
+            if(imgPhoto.Height <= 1200)
             {
                 heightResize = (float)imgPhoto.Height;
             }
