@@ -91,10 +91,12 @@ namespace SpriteGenerator
             return ScaleByPercent(Image.FromStream(fs));
         }
 
-        static Image ScaleByPercent(Image imgPhoto)
+        private Image ScaleByPercent(Image imgPhoto)
         {
-            float heightResize = 1200.0f;
-            if(imgPhoto.Height <= 1200)
+            float widthResize = (float) 50000 / layoutProp.inputFilePaths.Length;
+            float heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
+            //float heightResize = 1200.0f;
+            if(imgPhoto.Width * layoutProp.inputFilePaths.Length <= 50000)
             {
                 heightResize = (float)imgPhoto.Height;
             }
