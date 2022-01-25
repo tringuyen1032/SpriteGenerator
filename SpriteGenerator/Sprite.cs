@@ -93,18 +93,26 @@ namespace SpriteGenerator
 
         private Image ScaleByPercent(Image imgPhoto)
         {
-            float widthResize = (float) 50000 / layoutProp.inputFilePaths.Length;
-            float heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
-            //float heightResize = 1200.0f;
-            if(imgPhoto.Width * layoutProp.inputFilePaths.Length <= 50000)
-            {
-                heightResize = (float)imgPhoto.Height;
-            }
-            if(imgPhoto.Width > imgPhoto.Height)
+            if (imgPhoto.Width > imgPhoto.Height)
             {
                 Image img = imgPhoto;
                 img.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 imgPhoto = img;
+            }
+            float widthResize;
+            float heightResize;
+            if(layoutProp.inputFilePaths.Length < 50) { 
+            widthResize = (float)(35000 * (layoutProp.inputFilePaths.Length/50.0f)) / layoutProp.inputFilePaths.Length;
+            heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
+            } else
+            {
+                widthResize = (float)35000 / layoutProp.inputFilePaths.Length;
+                heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
+            }
+            //float heightResize = 1200.0f;
+            if (imgPhoto.Width * layoutProp.inputFilePaths.Length <= 50000)
+            {
+                heightResize = (float)imgPhoto.Height;
             }
             imgPhoto = (Image)new Bitmap(imgPhoto, new Size((int)(imgPhoto.Width *(heightResize / (float)imgPhoto.Height)), (int)(heightResize)));
             int sourceWidth = imgPhoto.Width;
@@ -114,7 +122,7 @@ namespace SpriteGenerator
 
             int destX = 0;
             int destY = 0;
-            int destWidth = (int)(sourceWidth * (heightResize / (float)sourceHeight));
+            int destWidth = (int)(imgPhoto.Width * (heightResize / (float)imgPhoto.Height));
             int destHeight = (int)(heightResize);
 
             Bitmap bmPhoto = new Bitmap(destWidth, destHeight,
