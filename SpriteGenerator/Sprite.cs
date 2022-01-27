@@ -54,9 +54,14 @@ namespace SpriteGenerator
             }
 
             cssFile.Close();
-            FileStream outputSpriteFile = new FileStream(layoutProp.outputSpriteFilePath, FileMode.Create);
-            resultSprite.Save(outputSpriteFile, ImageFormat.Png);
-            outputSpriteFile.Close();
+            //FileStream outputSpriteFile = new FileStream(layoutProp.outputSpriteFilePath, FileMode.Create);
+            //Bitmap bmp1 = new Bitmap(resultSprite, new Size(resultSprite.Width, resultSprite.Height));
+            ImageCodecInfo imageEncoder = GetEncoder(ImageFormat.Jpeg);
+            EncoderParameters parameters = new EncoderParameters(1);
+            parameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L);
+            //var ms = new MemoryStream();
+            resultSprite.Save(layoutProp.outputSpriteFilePath, imageEncoder, parameters);
+            //outputSpriteFile.Close();
             pleaseWait.Hide();
         }
 
@@ -90,6 +95,18 @@ namespace SpriteGenerator
             FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             return ScaleByPercent(Image.FromStream(fs));
         }
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
 
         private Image ScaleByPercent(Image imgPhoto)
         {
@@ -101,16 +118,16 @@ namespace SpriteGenerator
             }
             float widthResize;
             float heightResize;
-            if(layoutProp.inputFilePaths.Length < 50) { 
-            widthResize = (float)(35000 * (layoutProp.inputFilePaths.Length/50.0f)) / layoutProp.inputFilePaths.Length;
+            if (layoutProp.inputFilePaths.Length < 50) { 
+            widthResize = (float)(55000 * (layoutProp.inputFilePaths.Length/50.0f)) / layoutProp.inputFilePaths.Length;
             heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
             } else
             {
-                widthResize = (float)35000 / layoutProp.inputFilePaths.Length;
+                widthResize = (float)55000 / layoutProp.inputFilePaths.Length;
                 heightResize = (float)widthResize * imgPhoto.Height / imgPhoto.Width;
             }
             //float heightResize = 1200.0f;
-            if (imgPhoto.Width * layoutProp.inputFilePaths.Length <= 50000)
+            if (imgPhoto.Width * layoutProp.inputFilePaths.Length <= 55000)
             {
                 heightResize = (float)imgPhoto.Height;
             }
