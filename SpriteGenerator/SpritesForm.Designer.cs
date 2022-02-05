@@ -37,7 +37,7 @@
             this.textBoxOutputImageFilePath = new System.Windows.Forms.TextBox();
             this.textBoxOutputCSSFilePath = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.saveFileDialogOutputImage = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialogOutputImage = new System.Windows.Forms.FolderBrowserDialog();
             this.saveFileDialogOutputCss = new System.Windows.Forms.SaveFileDialog();
             this.buttonBrowseFolder = new System.Windows.Forms.Button();
             this.buttonSelectOutputImageFilePath = new System.Windows.Forms.Button();
@@ -131,7 +131,7 @@
             // 
             // saveFileDialogOutputImage
             // 
-            this.saveFileDialogOutputImage.Filter = "PNG Image|*.png";
+            //this.saveFileDialogOutputImage.Filter = "PNG Image|*.png";
             // 
             // saveFileDialogOutputCss
             // 
@@ -404,7 +404,7 @@
         private System.Windows.Forms.TextBox textBoxOutputImageFilePath;
         private System.Windows.Forms.TextBox textBoxOutputCSSFilePath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.SaveFileDialog saveFileDialogOutputImage;
+        private System.Windows.Forms.FolderBrowserDialog saveFileDialogOutputImage;
         private System.Windows.Forms.SaveFileDialog saveFileDialogOutputCss;
         private System.Windows.Forms.Button buttonBrowseFolder;
         private System.Windows.Forms.Button buttonSelectOutputImageFilePath;

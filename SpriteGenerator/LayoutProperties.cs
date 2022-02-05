@@ -15,6 +15,7 @@ namespace SpriteGenerator
         public int marginWidth;
         public int imagesInRow;
         public int imagesInColumn;
+        public string folderName;
 
         public LayoutProperties()
         {
@@ -26,6 +27,7 @@ namespace SpriteGenerator
             marginWidth = 0;
             imagesInRow = 0;
             imagesInColumn = 0;
+            folderName = "";
         }
     }
 }

@@ -8,3 +8,13 @@ D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.exe
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.pdb
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.WaitForm.resources
+D:\trinm\SpriteGenerator\SpriteGenerator\bin\Release\SpriteGenerator.exe
+D:\trinm\SpriteGenerator\SpriteGenerator\bin\Release\SpriteGenerator.pdb
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.csprojAssemblyReference.cache
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.SpritesForm.resources
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.Properties.Resources.resources
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.WaitForm.resources
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.csproj.GenerateResource.cache
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.csproj.CoreCompileInputs.cache
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.exe
+D:\trinm\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.pdb

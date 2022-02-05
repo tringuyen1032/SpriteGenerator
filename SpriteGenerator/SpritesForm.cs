@@ -51,6 +51,7 @@ namespace SpriteGenerator
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string[] filters = { ".png", ".jpg", ".jpeg", ".gif", ".JPG" };
+                layoutProp.folderName = Path.GetFileName(folderBrowserDialog.SelectedPath);
                 layoutProp.inputFilePaths = (from filter in filters
                                              from file in Directory.GetFiles(folderBrowserDialog.SelectedPath)
                                              where file.EndsWith(filter)
@@ -139,16 +140,17 @@ namespace SpriteGenerator
         private void buttonSelectOutputImageFilePath_Click(object sender, EventArgs e)
         {
             saveFileDialogOutputImage.ShowDialog();
-            if (saveFileDialogOutputImage.FileName != "")
+            saveFileDialogOutputImage.SelectedPath = saveFileDialogOutputImage.SelectedPath + "/" + layoutProp.folderName + "_" + DateTime.Now.ToFileTime() + "_" + layoutProp.inputFilePaths.Length + ".png";
+            if (saveFileDialogOutputImage.SelectedPath != "")
             {
-                if (buttonGenerateEnabled[2] && textBoxOutputCSSFilePath.Text[0] != saveFileDialogOutputImage.FileName[0])
+                if (buttonGenerateEnabled[2] && textBoxOutputCSSFilePath.Text[0] != saveFileDialogOutputImage.SelectedPath[0])
                     MessageBox.Show("Output image and CSS file must be on the same drive.");
                 else
                 {
-                    this.textBoxOutputImageFilePath.Text = saveFileDialogOutputImage.FileName;
+                    this.textBoxOutputImageFilePath.Text = saveFileDialogOutputImage.SelectedPath;
                     buttonGenerateEnabled[1] = true;
                     buttonGenerate.Enabled = buttonGenerateEnabled.All(element => element == true);
-                    this.textBoxOutputCSSFilePath.Text = saveFileDialogOutputImage.FileName.Substring(0, saveFileDialogOutputImage.FileName.Length - 4) + ".css";
+                    this.textBoxOutputCSSFilePath.Text = saveFileDialogOutputImage.SelectedPath.Substring(0, saveFileDialogOutputImage.SelectedPath.Length - 4) + ".css";
                     buttonGenerateEnabled[2] = true;
                     buttonGenerate.Enabled = buttonGenerateEnabled.All(element => element == true);
                 }
