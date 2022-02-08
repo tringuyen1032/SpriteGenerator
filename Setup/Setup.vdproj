@@ -49,6 +49,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -65,6 +73,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -181,15 +205,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Sprite Generator"
-        "ProductCode" = "8:{E7331D56-1175-4B38-A076-4E2BEB41A634}"
-        "PackageCode" = "8:{A0EB5A1E-8654-4C40-AF2D-F3CF735D9F5A}"
+        "ProductCode" = "8:{D6E8400A-77E8-4AF8-8DAF-2B9DD1145FF8}"
+        "PackageCode" = "8:{A1172761-20A1-48B5-8AF0-A06447E4A4A3}"
         "UpgradeCode" = "8:{53CF1F67-0AED-4206-A16F-AD3076A54BDA}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.7"
         "Manufacturer" = "8:Felix Zone, Inc"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://felixzone.asia/"
