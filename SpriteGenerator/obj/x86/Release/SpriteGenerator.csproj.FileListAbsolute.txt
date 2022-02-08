@@ -1,6 +1,5 @@
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\bin\Release\SpriteGenerator.exe
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\bin\Release\SpriteGenerator.pdb
-D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.csproj.AssemblyReference.cache
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.SpritesForm.resources
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.Properties.Resources.resources
 D:\Edu\Capstone\Tool sprite\spritegenerator\SpriteGenerator\SpriteGenerator\obj\x86\Release\SpriteGenerator.csproj.GenerateResource.cache
