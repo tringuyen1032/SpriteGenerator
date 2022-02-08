@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.Diagnostics;
 
 namespace SpriteGenerator
 {
@@ -35,9 +36,12 @@ namespace SpriteGenerator
             sprite.Create();
             //Sprite sprite = new Sprite(inputFilePaths, textBoxOutputImageFilePath.Text, textBoxOutputCSSFilePath.Text, layout,
             //    (int)numericUpDownDistanceBetweenImages.Value, (int)numericUpDownMarginWidth.Value, imagesInRow, imagesInColumn);
-            string message = "Create image sprite success!";
+            string message = "Generate image success! Do you want open folder's image?";
             string title = "Success";
-            MessageBox.Show(message, title);
+            if (DialogResult.Yes == MessageBox.Show(message, title, MessageBoxButtons.YesNo))
+            {
+                Process.Start(saveFileDialogOutputImage.SelectedPath.Substring(0, saveFileDialogOutputImage.SelectedPath.LastIndexOf("/")));
+            }
             this.textBoxInputDirectoryPath.Text = "";
             this.textBoxOutputCSSFilePath.Text = "";
             this.textBoxOutputImageFilePath.Text = "";
@@ -140,7 +144,9 @@ namespace SpriteGenerator
         private void buttonSelectOutputImageFilePath_Click(object sender, EventArgs e)
         {
             saveFileDialogOutputImage.ShowDialog();
-            saveFileDialogOutputImage.SelectedPath = saveFileDialogOutputImage.SelectedPath + "/" + layoutProp.folderName + "_" + DateTime.Now.ToFileTime() + "_" + layoutProp.inputFilePaths.Length + ".png";
+            String subPath = saveFileDialogOutputImage.SelectedPath + "/" + layoutProp.folderName;
+            if (!Directory.Exists(subPath)) Directory.CreateDirectory(subPath);
+            saveFileDialogOutputImage.SelectedPath = saveFileDialogOutputImage.SelectedPath + "/" + layoutProp.folderName + "/" + layoutProp.folderName + "_" + DateTime.Now.ToFileTime() + "_" + layoutProp.inputFilePaths.Length + ".png";
             if (saveFileDialogOutputImage.SelectedPath != "")
             {
                 if (buttonGenerateEnabled[2] && textBoxOutputCSSFilePath.Text[0] != saveFileDialogOutputImage.SelectedPath[0])
